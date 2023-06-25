@@ -4,7 +4,7 @@ session_start();
 // MySQL database configuration
 $servername = "localhost";
 $username = "root";
-$password = "9586";
+$password = "pass";
 $dbname = "penny_auction";
 
 // Create a new MySQL connection
