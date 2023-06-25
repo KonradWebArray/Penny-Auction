@@ -1,0 +1,74 @@
+/* header.css */
+
+/* Background color and padding */
+header {
+  background-color: #343a40;
+  padding: 10px 20px;
+}
+
+/* Navbar brand (logo) styling */
+header .navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Navbar link styling */
+header .navbar-nav .nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  list-style: none; /* Remove bullet points */
+  text-align: center; /* Center align the text */
+  display: inline-block; /* Display the links horizontally */
+}
+
+/* Navbar link hover effect */
+header .navbar-nav .nav-link:hover {
+  color: #a8a8a8;
+}
+
+/* Navbar toggle button styling */
+header .navbar-toggler {
+  border-color: #ffffff;
+}
+
+/* Navbar toggle icon styling */
+header .navbar-toggler-icon {
+  background-color: #ffffff;
+}
+
+/* Navbar collapse menu styling */
+header .collapse.navbar-collapse {
+  justify-content: center; /* Center align the menu items */
+}
+
+/* Navbar menu item spacing */
+header .navbar-nav .nav-item:not(:last-child) {
+  margin-right: 15px;
+}
+
+/* 3 Rows Across */
+header .row-across {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* 4 Rows Down */
+header .row-down {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* Adjust the spacing between items in rows */
+header .row-across > * {
+  margin: 10px;
+}
+
+/* Adjust the spacing between rows */
+header .row-down > * {
+  margin-bottom: 10px;
+}

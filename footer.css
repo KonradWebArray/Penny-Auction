@@ -1,0 +1,42 @@
+/* footer.css */
+
+/* Background and text color */
+footer {
+  background-color: #343a40;
+  color: #ffffff;
+}
+
+/* Padding and spacing */
+footer .container {
+  padding: 20px;
+}
+
+/* Right-align the list items */
+footer ul.text-md-right {
+  text-align: center; /* Center align the list items */
+  list-style: none; /* Remove bullet points */
+}
+
+/* Adjust the spacing between list items */
+footer ul.text-md-right li {
+  margin-bottom: 10px;
+}
+
+/* Style for links */
+footer ul.text-md-right li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Style for links on hover */
+footer ul.text-md-right li a:hover {
+  color: #a8a8a8;
+}
+
+/* Copy rights text */
+footer .copy-rights {
+  text-align: center; /* Center align the text */
+  margin-top: 20px;
+  font-size: 14px;
+  opacity: 0.8;
+}
