@@ -13,19 +13,31 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
-// Check if the user is logged in
-$isLoggedIn = false; // Assuming the user is not logged in initially
 
-// Perform a SQL query to check the user's login status
-// Replace 'users' with the actual table name and 'username' and 'password' with the appropriate column names in your database
-$query = "SELECT COUNT(*) AS count FROM users WHERE username = 'username_value' AND password = 'password_value'";
-$result = mysqli_query($connection, $query);
-$row = mysqli_fetch_assoc($result);
+// Why do you have this here?
+// In login.php you set $_SESSION["loggedin"] = true; so just check if ($_SESSION['loggedin']) and you don't need to query the database again...
+// But if you wanted to do this here then use the following..
 
-if ($row['count'] > 0) {
-    // The user is logged in
-    $isLoggedIn = true;
-}
+$username = $_SESSION['username']; // You will need to adjust this to how you're pulling the username (GET, POST, SESSION)
+$password = $_SESSION['password']; // Same thing here...
+
+// Changed to prepared statement
+$query->$connection->prepare("SELECT password FROM users WHERE username = ?");
+$query->bind_param('s', $username)
+
+$query->execute();
+
+$result = $query->get_result();
+$row = $result->fetch_assoc();
+
+// Use password verify to check that the password matches
+// This was done because in forgot password and in signup you are hashing the password with password_hash, which is a one way hash.
+// You cannot just check if the session password equals the database password. You need to check if the new password hash resolves to a matching result using password_verify.
+if ($row && password_verify($password, $row['password']))
+	$isLoggedIn = true;
+else
+	$isLoggedIn = false;
+
 ?>
 
 <header>
